@@ -199,6 +199,7 @@ class FeaturedListing extends ContentListing
      * Block registration settings.
      *
      * @link https://www.advancedcustomfields.com/resources/acf_register_block_type/
+     */
     public static function register(): array
     {
         $register = parent::register();
