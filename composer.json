@@ -1,0 +1,36 @@
+{
+  "name": "generoi/sage-acfblocks",
+  "type": "library",
+  "license": "MIT",
+  "description": "",
+  "homepage": "https://github.com/generoi/sage-foundation",
+  "authors": [
+    {
+      "name": "Oskar Schöldström",
+      "email": "public@oxy.fi"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Genero\\Sage\\AcfBlocks\\": "src/"
+    }
+  },
+  "require": {
+    "roots/acorn": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "~3.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "test": [
+      "phpcs --ignore=vendor --extensions=php --standard=PSR2 ."
+    ]
+  },
+  "archive" : {
+    "exclude": [
+      ".gitignore"
+    ]
+  }
+}
