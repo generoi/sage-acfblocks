@@ -62,7 +62,7 @@ class AcfBlock
         }
         // Unless assets are URLs, prefix them with the URL to the block directory.
         foreach (['enqueue_style', 'enqueue_script'] as $attribute) {
-            if ($data[$attribute] && !filter_var($data[$attribute], FILTER_VALIDATE_URL)) {
+            if (!empty($data[$attribute]) && !filter_var($data[$attribute], FILTER_VALIDATE_URL)) {
                 $path = dirname((new \ReflectionClass($composer))->getFileName());
                 $data[$attribute] = $this->uri($path . '/' . $data[$attribute]);
             }
