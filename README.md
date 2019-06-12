@@ -15,7 +15,11 @@ _Note that this is still in a proof of concept stage_.
     composer require generoi/sage-acfblocks:dev-master
     ```
 
-2. Add `Generoi\Sage\AcfBlocks\BlockServiceProvider::class` to the providers in config/app.php.
+2. Add `Generoi\Sage\AcfBlocks\BlockServiceProvider::class` to the providers in `config/app.php` or add automatically with:
+
+    ```sh
+    wp acorn package:discovery
+    ```
 
 3. Publish the default `config/blocks.php` file.
 
