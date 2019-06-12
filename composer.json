@@ -32,5 +32,15 @@
     "exclude": [
       ".gitignore"
     ]
+  },
+  "extra": {
+    "acorn": {
+      "providers": [
+        "Genero\Sage\AcfBlocks\AcfBlockServiceProvider"
+      ],
+      "aliases": {
+        "AcfBlock": "Genero\Sage\AcfBlocks\Facades\AcfBlock"
+      }
+    }
   }
 }
