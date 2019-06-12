@@ -11,7 +11,8 @@ _Note that this is still in a proof of concept stage_.
 1. Install the package in yor theme
 
     ```sh
-    composer require https://github.com/generoi/sage-acfblocks.git
+    composer config repositories.sage-acfblocks vcs https://github.com/generoi/sage-acfblocks.git
+    composer require generoi/sage-acfblocks:dev-master
     ```
 
 2. Add `Generoi\Sage\AcfBlocks\BlockServiceProvider::class` to the providers in config/app.php.
