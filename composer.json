@@ -36,10 +36,10 @@
   "extra": {
     "acorn": {
       "providers": [
-        "Genero\Sage\AcfBlocks\AcfBlockServiceProvider"
+        "Genero\\Sage\\AcfBlocks\\AcfBlockServiceProvider"
       ],
       "aliases": {
-        "AcfBlock": "Genero\Sage\AcfBlocks\Facades\AcfBlock"
+        "AcfBlock": "Genero\\Sage\\AcfBlocks\\Facades\\AcfBlock"
       }
     }
   }
