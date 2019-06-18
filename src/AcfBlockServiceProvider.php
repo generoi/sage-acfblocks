@@ -6,6 +6,7 @@ use Roots\Acorn\ServiceProvider;
 
 use function Roots\config;
 use function Roots\view;
+use function Roots\app;
 use function Roots\config_path;
 
 class AcfBlockServiceProvider extends ServiceProvider
