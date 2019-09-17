@@ -43,7 +43,7 @@ class AcfBlock
         try {
             $view = view()->first($composer->views());
         } catch (\InvalidArgumentException $e) {
-            if ($isPreview) {
+            if ($composer->isPreview()) {
                 echo sprintf('<div>%s</div', $e->getMessage());
                 return;
             }
