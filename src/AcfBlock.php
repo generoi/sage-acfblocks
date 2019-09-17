@@ -29,7 +29,7 @@ class AcfBlock
                     $this->get("$composer.settings.name"),
                     $block,
                     $content,
-                    $isPreview,
+                    is_bool($isPreview) ? $isPreview : false,
                     (int) $postId
                 ));
 
