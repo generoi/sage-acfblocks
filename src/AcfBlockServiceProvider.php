@@ -48,7 +48,7 @@ class AcfBlockServiceProvider extends ServiceProvider
             wp_register_script(
                 'sage/acf-blocks.js',
                 $this->app['acfblock']->uri(__DIR__ . '/acf-blocks.js'),
-                ['acf-blocks', 'wp-blocks'],
+                ['wp-blocks'],
                 filemtime(__DIR__ . '/acf-blocks.js')
             );
             wp_localize_script('sage/acf-blocks.js', 'acfBlockStyles', $styles);
