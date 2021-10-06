@@ -85,7 +85,7 @@ class AcfBlock
     {
         return str_replace(
             get_theme_file_path(),
-            get_theme_file_uri(),
+            get_template_directory_uri(),
             $path
         );
     }
