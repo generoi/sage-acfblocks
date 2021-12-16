@@ -45,14 +45,26 @@ class AcfBlockServiceProvider extends ServiceProvider
     public function registerStyles()
     {
         if ($styles = $this->app['acfblock']->getBlockStyles()) {
-            wp_register_script(
-                'sage/acf-blocks.js',
-                $this->app['acfblock']->uri(__DIR__ . '/acf-blocks.js'),
-                ['wp-blocks'],
-                filemtime(__DIR__ . '/acf-blocks.js')
-            );
-            wp_localize_script('sage/acf-blocks.js', 'acfBlockStyles', $styles);
-            wp_enqueue_script('sage/acf-blocks.js');
+            /**
+             * Possible to register block styles on the server since 5.3.0
+             * @see https://developer.wordpress.org/reference/functions/register_block_style/
+             */
+            if ( function_exists( 'register_block_style' ) ) {
+                foreach ($styles as $blockname => $allstyles) {
+                    foreach ($allstyles as $key => $style) {
+                        register_block_style($blockname, $style);
+                    }
+                }
+            }else{
+                wp_register_script(
+                    'sage/acf-blocks.js',
+                    $this->app['acfblock']->uri(__DIR__ . '/acf-blocks.js'),
+                    ['wp-blocks'],
+                    filemtime(__DIR__ . '/acf-blocks.js')
+                );
+                wp_localize_script('sage/acf-blocks.js', 'acfBlockStyles', $styles);
+                wp_enqueue_script('sage/acf-blocks.js');
+            }
         }
     }
 
