@@ -4,7 +4,7 @@ A Sage 10 helper package for building ACF blocks rendered using blade templates.
 
 The main difference between this and others similar packages is that it's designed for also rendering the blocks directly from templates that do not have a Block Editor. It also supports rendering different templates per block style.
 
-_Note that this is still in a proof of concept stage_.
+_Note that this is still in a proof of concept stage. WordPress 5.3 or more is required._.
 
 ### Installation
 
@@ -18,7 +18,7 @@ _Note that this is still in a proof of concept stage_.
 2. Add `Generoi\Sage\AcfBlocks\BlockServiceProvider::class` to the providers in `config/app.php` or add automatically with:
 
     ```sh
-    wp acorn package:discovery
+    wp acorn package:discover
     ```
 
 3. Publish the default `config/blocks.php` file.
