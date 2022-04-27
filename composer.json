@@ -15,9 +15,6 @@
       "Genero\\Sage\\AcfBlocks\\": "src/"
     }
   },
-  "require": {
-    "roots/acorn": "*"
-  },
   "require-dev": {
     "squizlabs/php_codesniffer": "~3.0"
   },
