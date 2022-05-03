@@ -4,11 +4,6 @@ namespace Genero\Sage\AcfBlocks;
 
 use Roots\Acorn\ServiceProvider;
 
-use function Roots\config;
-use function Roots\view;
-use function Roots\app;
-use function Roots\config_path;
-
 class AcfBlockServiceProvider extends ServiceProvider
 {
     /**
@@ -23,17 +18,17 @@ class AcfBlockServiceProvider extends ServiceProvider
         $this->registerBlocks();
         $this->registerStyles();
 
-        if (config('blocks.directive')) {
+        if ($this->app->config->get('blocks.directive')) {
             $this->attachBladeDirective();
         }
     }
 
     public function registerBlocks()
     {
-        collect(config('blocks.blocks'))->each(function ($composerClass) {
+        collect($this->app->config->get('blocks.blocks'))->each(function ($composerClass) {
             add_action('acf/init', function () use ($composerClass) {
-                app('acfblock')->registerBlock($composerClass);
-                app('acfblock')->registerFields($composerClass);
+                $this->app['acfblock']->registerBlock($composerClass);
+                $this->app['acfblock']->registerFields($composerClass);
             });
 
             $this->addViewNamespace($composerClass);
@@ -61,7 +56,7 @@ class AcfBlockServiceProvider extends ServiceProvider
 
     public function attachBladeDirective()
     {
-        $blade = view()->getEngineResolver()->resolve('blade')->getCompiler();
+        $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
         $blade->directive('acfblock', function ($expression) {
             $expression = collect(explode(',', $expression, 2))
                 ->map(function ($argument) {
@@ -88,7 +83,7 @@ class AcfBlockServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/blocks.php' => config_path('blocks.php'),
+            __DIR__ . '/../config/blocks.php' => $this->app->configPath('blocks.php'),
         ], 'config');
     }
 }
