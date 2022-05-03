@@ -3,12 +3,18 @@
 namespace Genero\Sage\AcfBlocks;
 
 use Illuminate\Support\Arr;
+use \Illuminate\Contracts\Foundation\Application;
 
 class AcfBlock
 {
     /** @var array Registered blocks. */
     protected $blocks = [];
     protected $styles = [];
+    protected $app;
+
+    public function __construct(Application $app) {
+        $this->app = $app;
+    }
 
     public function registerBlock(string $composer): void
     {
