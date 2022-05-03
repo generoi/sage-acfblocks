@@ -3,7 +3,6 @@
 namespace Genero\Sage\AcfBlocks;
 
 use Illuminate\View\View;
-use function Roots\view;
 
 abstract class Block
 {

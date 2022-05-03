@@ -3,9 +3,6 @@
 namespace Genero\Sage\AcfBlocks;
 
 use Illuminate\Support\Arr;
-use function Roots\config;
-use function Roots\view;
-use function Roots\config_path;
 
 class AcfBlock
 {
@@ -41,7 +38,7 @@ class AcfBlock
     public function renderBlock(Block $composer)
     {
         try {
-            $view = view()->first($composer->views());
+            $view = $this->app['view']->first($composer->views());
         } catch (\InvalidArgumentException $e) {
             if ($composer->isPreview()) {
                 echo sprintf('<div>%s</div', $e->getMessage());
