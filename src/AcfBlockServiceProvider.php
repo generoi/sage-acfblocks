@@ -2,7 +2,7 @@
 
 namespace Genero\Sage\AcfBlocks;
 
-use Roots\Acorn\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class AcfBlockServiceProvider extends ServiceProvider
 {
