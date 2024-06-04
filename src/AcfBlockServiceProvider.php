@@ -68,6 +68,7 @@ class AcfBlockServiceProvider extends ServiceProvider
             if (!empty($expression->get(1))) {
                 $block .= "<?php \$block = array_merge(\$block, {$expression->get(1)}); ?>";
             }
+            $block .= "<?php \$block = array_merge(\$block, ['id' => acf_get_block_id(\$block)]); ?>";
 
             return $block .
                 "<?php acf_render_block(\$block); ?>" .
