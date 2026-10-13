@@ -112,7 +112,7 @@ class AcfBlock
             ->all();
     }
 
-    public function get(string $key = null, $default = null)
+    public function get(?string $key = null, $default = null)
     {
         return Arr::get($this->blocks, $key, $default);
     }
