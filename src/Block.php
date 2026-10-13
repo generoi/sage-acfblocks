@@ -109,7 +109,7 @@ abstract class Block
     /**
      * The block settings and attributes.
      */
-    public function getBlock(string $key = null): array
+    public function getBlock(?string $key = null): array
     {
         return $this->block;
     }
